@@ -6,8 +6,9 @@ import Config
 # to provide built-in test partitioning in CI environment.
 # Run `mix help test` for more information.
 config :calendo, Calendo.Repo,
-  username: "postgres",
-  password: "postgres",
+  adapter: Ecto.Adapters.SQLite3,
+  username: "sqlite3",
+  password: "sqlite3",
   hostname: "localhost",
   database: "calendo_test#{System.get_env("MIX_TEST_PARTITION")}",
   pool: Ecto.Adapters.SQL.Sandbox,
