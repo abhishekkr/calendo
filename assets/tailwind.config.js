@@ -7,7 +7,7 @@ module.exports = {
     './css/**/*.css',
     '../lib/*_web/**/*.*ex',
   ],
-  darkMode: false,
+  media: false,
   theme: {
     extend: {},
   },
