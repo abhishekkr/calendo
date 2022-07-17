@@ -14,14 +14,12 @@ defmodule CalendoWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", CalendoWeb do
-    pipe_through :browser
+  live_session :public, on_mount: CalendoWeb.Live.InitAssigns do
+    scope "/", CalendoWeb do
+      pipe_through :browser
 
-    live "/", PageLive
+      live "/", PageLive
+      live "/:event_type_slug", EventTypeLive
+    end
   end
-
-  # Other scopes may use custom stacks.
-  # scope "/api", CalendoWeb do
-  #   pipe_through :api
-  # end
 end

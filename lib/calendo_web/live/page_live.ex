@@ -1,8 +1,14 @@
 defmodule CalendoWeb.PageLive do
   use CalendoWeb, :live_view
 
-  @impl true
+  alias CalendoWeb.Components.EventType
+  require Logger
+
   def mount(_params, _session, socket) do
-    {:ok, socket}
+    event_types = Calendo.available_event_types()
+    event_socket = assign(socket, event_types: event_types)
+    temp_assigns = [event_types: []]
+
+    {:ok, event_socket, temporary_assigns: temp_assigns}
   end
 end

@@ -8,7 +8,11 @@
 import Config
 
 config :calendo,
-  ecto_repos: [Calendo.Repo]
+  ecto_repos: [Calendo.Repo],
+ ## Temp, should be in DB later.. dynamic
+  owner: %{
+    name: "AbhishekKr"
+  }
 
 # Configures the endpoint
 config :calendo, CalendoWeb.Endpoint,
