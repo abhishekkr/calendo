@@ -11,7 +11,8 @@ config :calendo,
   ecto_repos: [Calendo.Repo],
  ## Temp, should be in DB later.. dynamic
   owner: %{
-    name: "AbhishekKr"
+    name: "AbhishekKr",
+    time_zone: "Asia/Kolkata",
   }
 
 # Configures the endpoint

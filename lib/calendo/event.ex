@@ -25,7 +25,7 @@ defmodule Calendo.Event do
   @required_fields ~w(start_at end_at name email time_zone)a
 
   @doc false
-  def changeset(event \\ %Event{}, attrs) do
+  def changeset(event \\ %Calendo.Event{}, attrs) do
     event
     |> cast(attrs, @fields)
     |> validate_required(@required_fields)

@@ -2,7 +2,6 @@ defmodule CalendoWeb.PageLive do
   use CalendoWeb, :live_view
 
   alias CalendoWeb.Components.EventType
-  require Logger
 
   def mount(_params, _session, socket) do
     event_types = Calendo.available_event_types()
