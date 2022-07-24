@@ -13,6 +13,8 @@ config :calendo,
   owner: %{
     name: "AbhishekKr",
     time_zone: "Asia/Kolkata",
+    day_start: 10,
+    day_end: 19,
   }
 
 # Configures the endpoint

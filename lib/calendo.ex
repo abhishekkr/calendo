@@ -12,4 +12,7 @@ defmodule Calendo do
 
   defdelegate get_event_type_by_slug(slug),
     to: Calendo.EventType.Repo, as: :get_by_slug
+
+  defdelegate build_time_slots(date, time_zone, duration),
+    to: Calendo.TimeSlots, as: :build
 end

@@ -10,7 +10,8 @@ defmodule CalendoWeb.EventTypeLive do
         socket = socket
                  |> assign(event_type: event_type)
                  |> assign(page_title: event_type.name)
-        {:ok, socket}
+        temp_assigns = [time_slots: []]
+        {:ok, socket, temporary_assigns: temp_assigns}
       {:error, :not_found} ->
         {:ok, socket, layout: {CalendoWeb.LayoutView, "not_found.html"}}
     end
@@ -18,7 +19,9 @@ defmodule CalendoWeb.EventTypeLive do
 
   @impl LiveView
   def handle_params(params, _uri, socket) do
-    socket = assign_dates(socket, params)
+    socket = socket
+              |> assign_dates(params)
+              |> assign_time_slots(params)
 
     {:noreply, socket}
   end
@@ -64,4 +67,16 @@ defmodule CalendoWeb.EventTypeLive do
   defp date_to_month(date_time) do
     Timex.format!(date_time, "{YYYY}-{0M}")
   end
+
+  defp assign_time_slots(socket, %{"date" => _}) do
+    date = socket.assigns.current
+    time_zone = socket.assigns.owner.time_zone
+    event_duration = socket.assigns.event_type.duration
+
+    time_slots = Calendo.build_time_slots(date, time_zone, event_duration)
+    socket
+    |> assign(time_slots: time_slots)
+    |> assign(selected_date: date)
+  end
+  defp assign_time_slots(socket, _), do: socket
 end
