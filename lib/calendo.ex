@@ -15,4 +15,10 @@ defmodule Calendo do
 
   defdelegate build_time_slots(date, time_zone, duration),
     to: Calendo.TimeSlots, as: :build
+
+  defdelegate insert_event(params),
+    to: Calendo.Event.Repo, as: :insert
+
+  defdelegate get_event_by_id(id),
+    to: Calendo.Event.Repo, as: :get
 end
