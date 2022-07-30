@@ -1,8 +1,8 @@
 defmodule Calendo.TimeSlots do
   @moduledoc false
 
-  @default_day_start 9
-  @default_day_end   17
+  @default_day_start 9   # for 9-to-5
+  @default_day_end   17  # for 9-to-5
 
   @spec build(Date.t(), String.t(), non_neg_integer) :: [DateTime.t()]
   def build(date, time_zone, duration) do
