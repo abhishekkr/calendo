@@ -2,6 +2,8 @@
 // Remove this line if you add a your own CSS build pipeline (e.g postcss).
 import "../css/app.css"
 
+import Hooks from "./hooks"
+
 // If you want to use Phoenix channels, run `mix help phx.gen.channel`
 // to get started and then uncomment the line below.
 // import "./user_socket.js"
@@ -28,6 +30,7 @@ import topbar from "../vendor/topbar"
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 const liveSocket = new LiveSocket('/live', Socket, {
+  hooks: Hooks,
   params: {
     _csrf_token: csrfToken,
     timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,

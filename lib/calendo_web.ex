@@ -41,6 +41,19 @@ defmodule CalendoWeb do
     end
   end
 
+  def admin_live_view do
+    quote do
+      use Phoenix.LiveView,
+        layout: {CalendoWeb.LayoutView, "admin.html"}
+
+      import CalendoWeb.LiveViewHelpers
+
+      alias Phoenix.LiveView
+
+      unquote(view_helpers())
+    end
+  end
+
   def live_view do
     quote do
       use Phoenix.LiveView,

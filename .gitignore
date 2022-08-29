@@ -32,3 +32,8 @@ calendo-*.tar
 npm-debug.log
 /assets/node_modules/
 
+## custom
+CMD.log
+calendo_dev
+calendo_dev-shm
+calendo_dev-wal

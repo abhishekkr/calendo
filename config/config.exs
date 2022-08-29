@@ -10,6 +10,7 @@ import Config
 config :calendo,
   ecto_repos: [Calendo.Repo],
  ## Temp, should be in DB later.. dynamic
+  basic_auth: [username: "admin", password: "changeit"],
   owner: %{
     name: "AbhishekKr",
     time_zone: "Asia/Kolkata",
